@@ -1,0 +1,63 @@
+#!/usr/bin/make -f
+export DH_VERBOSE=1
+
+target=arm-none-eabi
+
+package=gdb-arm-none-eabi
+top_dir=$(shell pwd)
+gdb_dir=/usr/src
+stampdir=debian/stamp
+
+source_version := $(shell dpkg-query -W -f="\$${Version}\n" gdb-source)
+deb_version := $(source_version)+$(shell dpkg-parsechangelog | sed -ne "s/^Version: \(.*\)/\1/p")
+deb_upstream_version := $(shell echo $(deb_version) | cut -d- -f1)
+base_version := $(shell echo $(deb_version) | sed -e 's/\([1-9]\.[0-9]\).*-.*/\1/')
+
+src_dir=gdb
+build_dir=build
+
+unpack_stamp=$(stampdir)/unpack
+
+buildflags=$(shell dpkg-buildflags --export=configure)
+
+configure_flags = \
+    --target=$(target) \
+    --exec-prefix=\$${prefix}/lib \
+    --bindir=\$${prefix}/bin \
+    --infodir=\$${prefix}/share/doc/$(package)/info \
+    --htmldir=\$${prefix}/share/doc/$(package)/html \
+    --pdfdir=\$${prefix}/share/doc/$(package)/pdf \
+    --disable-nls \
+    --disable-sim \
+    --with-libexpat \
+    --with-python=no \
+    --with-system-gdbinit=\$${prefix}/lib/arm-none-eabi/lib/gdbinit \
+    --with-gdb-datadir=\$${prefix}/lib/arm-none-eabi/share/gdb \
+    "--with-pkgversion=$(deb_version)" \
+    $(buildflags)
+
+%:
+	dh $@ -D$(src_dir) -B$(build_dir) --with autotools-dev
+
+$(unpack_stamp):
+	tar xf $(gdb_dir)/gdb.tar.*
+	mkdir -p $(stampdir)
+	cp /usr/share/doc/gdb-source/copyright debian/copyright
+	touch $@
+
+override_dh_auto_configure: $(unpack_stamp)
+	dh_auto_configure -D$(src_dir) -B$(build_dir) -- $(configure_flags)
+
+override_dh_gencontrol:
+	dh_gencontrol -a -- -v$(deb_version) -Vlocal:Version=$(deb_upstream_version) -Vgdb:Version=$(source_version)
+
+override_dh_auto_clean:
+	dh_auto_clean -D$(src_dir) -B$(build_dir)
+	rm -rf $(src_dir) $(build_dir) $(stampdir) debian/tmp testrun.*
+
+override_dh_auto_install:
+	mkdir -p $(top_dir)/debian/tmp
+	cd build && make install DESTDIR=$(top_dir)/debian/tmp
+
+override_dh_installchangelogs:
+	install -o 0 -g 0 -p -m644 debian/changelog debian/gdb-arm-none-eabi/usr/share/doc/gdb-arm-none-eabi/changelog.Debian
