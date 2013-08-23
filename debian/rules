@@ -52,7 +52,7 @@ override_dh_gencontrol:
 	dh_gencontrol -a -- -v$(deb_version) -Vlocal:Version=$(deb_upstream_version) -Vgdb:Version=$(source_version)
 
 override_dh_auto_clean:
-	dh_auto_clean -D$(src_dir) -B$(build_dir)
+	if [ -d $(src_dir) ]; then dh_auto_clean -D$(src_dir) -B$(build_dir); fi
 	rm -rf $(src_dir) $(build_dir) $(stampdir) debian/tmp testrun.*
 
 override_dh_auto_install:
