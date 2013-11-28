@@ -1,0 +1,1 @@
+gdb-arm-none-eabi: binary-without-manpage usr/bin/arm-none-eabi-run

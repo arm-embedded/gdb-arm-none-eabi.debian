@@ -28,7 +28,6 @@ configure_flags = \
     --htmldir=\$${prefix}/share/doc/$(package)/html \
     --pdfdir=\$${prefix}/share/doc/$(package)/pdf \
     --disable-nls \
-    --disable-sim \
     --with-libexpat \
     --with-python=no \
     --with-system-gdbinit=\$${prefix}/lib/arm-none-eabi/lib/gdbinit \
@@ -58,6 +57,7 @@ override_dh_auto_clean:
 override_dh_auto_install:
 	mkdir -p $(top_dir)/debian/tmp
 	cd build && make install DESTDIR=$(top_dir)/debian/tmp
+	rm -f $(top_dir)/debian/tmp/usr/share/man/man1/arm-none-eabi-run.1
 
 override_dh_installchangelogs:
-	install -o 0 -g 0 -p -m644 debian/changelog debian/gdb-arm-none-eabi/usr/share/doc/gdb-arm-none-eabi/changelog.Debian
+	dh_installchangelogs gdb/ChangeLog
