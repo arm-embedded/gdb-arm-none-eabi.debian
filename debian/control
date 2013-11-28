@@ -1,43 +1,45 @@
 Source: gdb-arm-none-eabi
 Section: devel
 Priority: extra
-Maintainer: Keith Packard <keithp@keithp.com>
-Build-Depends:  debhelper (>= 8.0.0),
-		gdb-source,
-		autotools-dev,
-		bzip2,
-		lsb-release,
-               bzip2,
+Maintainer: Agustin Henze <tin@debian.org>
+Uploaders: Keith Packard <keithp@keithp.com>
+Build-Depends:
+ debhelper (>= 8.0.0),
+ gdb-source,
+ autotools-dev,
+ bzip2,
+ lsb-release,
 # Other tool deps
-               autoconf,
-               libtool,
-               gettext,
-               bison,
-               dejagnu,
-               flex | flex-old,
-               procps,
-               g++-multilib [i386 powerpc s390 sparc],
-               gcj-jdk | gcj,
-               gobjc,
-               mig [hurd-any],
+ autoconf,
+ libtool,
+ gettext,
+ bison,
+ dejagnu,
+ flex | flex-old,
+ procps,
+ mig [hurd-any],
 # TeX[info] deps
-               texinfo (>= 4.7-2.2),
-               texlive-base,
+ texinfo (>= 4.7-2.2),
+ texlive-base,
 # Libdev deps
-               libexpat1-dev, lib64expat1-dev [i386 powerpc s390 sparc],
-               libncurses5-dev, lib64ncurses5-dev [i386 powerpc s390 sparc],
-               libreadline-dev, lib64readline6-dev [i386 powerpc s390 sparc],
-               zlib1g-dev,
-               libbz2-dev,
-               liblzma-dev,
-               python-dev,
-               libkvm-dev [kfreebsd-any],
-               libunwind7-dev [ia64],
+ libexpat1-dev,
+ libncurses5-dev,
+ libreadline-dev,
+ zlib1g-dev,
+ libbz2-dev,
+ liblzma-dev,
+ libkvm-dev [kfreebsd-any],
 Standards-Version: 3.9.4
+Homepage: http://www.gnu.org/s/gdb/
+Vcs-Git: git://anonscm.debian.org/collab-maint/gdb-arm-none-eabi.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/gdb-arm-none-eabi.git
 
 Package: gdb-arm-none-eabi
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: GNU debugger for ARM cortex -m0 and -m3 chips
- Bare metal gdb for embedded ARM chips using the cortex-m0 and
- cortex-m3 architecture
+Recommends: gcc-arm-none-eabi
+Description: GNU debugger for ARM Cortex-A/R/M processors
+ Bare metal GNU debugger for embedded ARM chips using Cortex-M0/M0+/M3/M4,
+ Cortex-R4/R5/R7 and Cortex-A* processors. GDB is a source-level debugger,
+ capable of breaking programs at any specific line, displaying variable values,
+ and determining where errors occurred.
