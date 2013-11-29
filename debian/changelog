@@ -1,5 +1,5 @@
 gdb-arm-none-eabi (1) unstable; urgency=low
 
-  * Initial release.
+  * Initial release (Closes: #728387).
 
  -- Keith Packard <keithp@keithp.com>  Sun, 18 Aug 2013 02:49:03 +0200
