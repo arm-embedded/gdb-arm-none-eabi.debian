@@ -61,3 +61,10 @@ override_dh_auto_install:
 
 override_dh_installchangelogs:
 	dh_installchangelogs gdb/ChangeLog
+
+override_dh_installman:
+	help2man $(top_dir)/debian/tmp/usr/bin/arm-none-eabi-run > $(top_dir)/debian/tmp/usr/share/man/man1/arm-none-eabi-run.1
+	dh_installman
+
+override_dh_auto_test:
+	# The test cases doesn't pass using sim as target

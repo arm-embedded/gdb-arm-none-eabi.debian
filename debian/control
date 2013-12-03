@@ -14,10 +14,10 @@ Build-Depends:
  libtool,
  gettext,
  bison,
- dejagnu,
  flex | flex-old,
  procps,
  mig [hurd-any],
+ help2man,
 # TeX[info] deps
  texinfo (>= 4.7-2.2),
  texlive-base,
