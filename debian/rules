@@ -41,7 +41,6 @@ configure_flags = \
 $(unpack_stamp):
 	tar xf $(gdb_dir)/gdb.tar.*
 	mkdir -p $(stampdir)
-	cp /usr/share/doc/gdb-source/copyright debian/copyright
 	touch $@
 
 override_dh_auto_configure: $(unpack_stamp)
