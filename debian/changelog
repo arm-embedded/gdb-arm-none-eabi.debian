@@ -1,3 +1,11 @@
+gdb-arm-none-eabi (2) unstable; urgency=medium
+
+  * Add bdepend on libisl-dev and libcloog-isl-dev.
+  * Bumped Standard-Version to 3.9.5 (no changes required)
+  * Do not copy the debian/copyright file from gdb-source anymore
+
+ -- Agustin Henze <tin@debian.org>  Fri, 13 Jun 2014 19:40:33 -0300
+
 gdb-arm-none-eabi (1) unstable; urgency=low
 
   * Initial release (Closes: #728387).
