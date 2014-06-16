@@ -1,3 +1,10 @@
+gdb-arm-none-eabi (3) unstable; urgency=medium
+
+  * Remove empty manuals
+  * Fix installman target for arm-none-eabi-run binary
+
+ -- Agustin Henze <tin@debian.org>  Mon, 16 Jun 2014 19:51:15 -0300
+
 gdb-arm-none-eabi (2) unstable; urgency=medium
 
   * Add bdepend on libisl-dev and libcloog-isl-dev.
