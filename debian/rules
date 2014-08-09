@@ -29,7 +29,7 @@ configure_flags = \
     --pdfdir=\$${prefix}/share/doc/$(package)/pdf \
     --disable-nls \
     --with-libexpat \
-    --with-python=no \
+    --with-python=yes \
     --with-system-gdbinit=\$${prefix}/lib/arm-none-eabi/lib/gdbinit \
     --with-gdb-datadir=\$${prefix}/lib/arm-none-eabi/share/gdb \
     "--with-pkgversion=$(deb_version)" \
