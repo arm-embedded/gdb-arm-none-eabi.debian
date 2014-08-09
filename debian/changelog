@@ -1,6 +1,7 @@
-gdb-arm-none-eabi (4) UNRELEASED; urgency=medium
+gdb-arm-none-eabi (4) unstable; urgency=medium
 
   * Add myself to Uploaders.
+  * Enable python support
 
  -- Thomas Preud'homme <robotux@debian.org>  Sat, 09 Aug 2014 22:51:19 +0800
 
