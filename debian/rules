@@ -22,19 +22,19 @@ unpack_stamp=$(stampdir)/unpack
 buildflags=$(shell dpkg-buildflags --export=configure)
 
 configure_flags = \
-    --target=$(target) \
-    --exec-prefix=\$${prefix}/lib \
-    --bindir=\$${prefix}/bin \
-    --infodir=\$${prefix}/share/doc/$(package)/info \
-    --htmldir=\$${prefix}/share/doc/$(package)/html \
-    --pdfdir=\$${prefix}/share/doc/$(package)/pdf \
-    --disable-nls \
-    --with-libexpat \
-    --with-python=yes \
-    --with-system-gdbinit=\$${prefix}/lib/arm-none-eabi/lib/gdbinit \
-    --with-gdb-datadir=\$${prefix}/lib/arm-none-eabi/share/gdb \
-    "--with-pkgversion=$(deb_version)" \
-    $(buildflags)
+	--target=$(target) \
+	--exec-prefix=\$${prefix}/lib \
+	--bindir=\$${prefix}/bin \
+	--infodir=\$${prefix}/share/doc/$(package)/info \
+	--htmldir=\$${prefix}/share/doc/$(package)/html \
+	--pdfdir=\$${prefix}/share/doc/$(package)/pdf \
+	--disable-nls \
+	--with-libexpat \
+	--with-python=yes \
+	--with-system-gdbinit=\$${prefix}/lib/arm-none-eabi/lib/gdbinit \
+	--with-gdb-datadir=\$${prefix}/lib/arm-none-eabi/share/gdb \
+	"--with-pkgversion=$(deb_version)" \
+	$(buildflags)
 
 %:
 	dh $@ -D$(src_dir) -B$(build_dir) --with autotools-dev
@@ -57,6 +57,7 @@ override_dh_auto_clean:
 
 override_dh_auto_install:
 	mkdir -p $(top_dir)/debian/tmp
+	touch $(src_dir)/sim/common/run.1
 	cd build && make install DESTDIR=$(top_dir)/debian/tmp
 	rm -f $(top_dir)/debian/tmp/usr/share/man/man1/*
 	rm -f $(top_dir)/debian/tmp/usr/share/man/man5/*
