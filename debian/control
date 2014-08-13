@@ -41,6 +41,7 @@ Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/gdb-arm-none-eabi.
 Package: gdb-arm-none-eabi
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
+Built-Using: ${Built-Using}
 Recommends: gcc-arm-none-eabi
 Description: GNU debugger for ARM Cortex-A/R/M processors
  Bare metal GNU debugger for embedded ARM chips using Cortex-M0/M0+/M3/M4,
