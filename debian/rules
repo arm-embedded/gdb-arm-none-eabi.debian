@@ -18,6 +18,7 @@ src_dir=gdb
 build_dir=build
 
 unpack_stamp=$(stampdir)/unpack
+tar_stamp=$(stampdir)/tar
 
 buildflags=$(shell dpkg-buildflags --export=configure)
 
@@ -39,7 +40,16 @@ configure_flags = \
 %:
 	dh $@ -D$(src_dir) -B$(build_dir) --with autotools-dev
 
-$(unpack_stamp):
+$(unpack_stamp): $(tar_stamp)
+	set -ex; \
+		cd gdb; \
+		for patch in ../debian/patches/[0-9]*.patch; do \
+			echo Applying patch "$$patch"; \
+			patch -p1 < "$$patch"; \
+		done
+	touch $@
+
+$(tar_stamp):
 	tar xf $(gdb_dir)/gdb.tar.*
 	mkdir -p $(stampdir)
 	touch $@
