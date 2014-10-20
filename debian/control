@@ -3,7 +3,7 @@ Section: devel
 Priority: extra
 Maintainer: Agustin Henze <tin@debian.org>
 Uploaders: Keith Packard <keithp@keithp.com>,
-           Thomas Preud'homme <thomas.preud-homme@arm.com>
+           Thomas Preud'homme <thomas.preudhomme@arm.com>
 Build-Depends:
  debhelper (>= 8.0.0),
  gdb-source,
