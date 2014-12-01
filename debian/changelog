@@ -1,9 +1,13 @@
-gdb-arm-none-eabi (7) UNRELEASED; urgency=medium
+gdb-arm-none-eabi (7) experimental; urgency=medium
 
+  [ Thomas Preud'homme ]
   * New upstream release: 4.8-2014-q3-update.
   * Fix my email.
 
- -- Thomas Preud'homme <thomas.preudhomme@arm.com>  Mon, 20 Oct 2014 15:38:58 +0000
+  [ Agustin Henze ]
+  * Bumped Standard-Version to 3.9.6 (no changes required)
+
+ -- Agustin Henze <tin@debian.org>  Mon, 01 Dec 2014 10:08:58 -0300
 
 gdb-arm-none-eabi (6) unstable; urgency=medium
 
