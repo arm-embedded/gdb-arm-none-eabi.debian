@@ -33,7 +33,7 @@ Build-Depends:
  libkvm-dev [kfreebsd-any],
  libisl-dev,
  libcloog-isl-dev,
-Standards-Version: 3.9.5
+Standards-Version: 3.9.6
 Homepage: http://www.gnu.org/s/gdb/
 Vcs-Git: git://anonscm.debian.org/collab-maint/gdb-arm-none-eabi.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/gdb-arm-none-eabi.git
