@@ -1,3 +1,9 @@
+gdb-arm-none-eabi (8) UNRELEASED; urgency=medium
+
+  * New upstream release: 4.9-2014-q4-major.
+
+ -- Thomas Preud'homme <thomas.preudhomme@arm.com>  Wed, 17 Dec 2014 15:35:48 +0000
+
 gdb-arm-none-eabi (7) experimental; urgency=medium
 
   [ Thomas Preud'homme ]
