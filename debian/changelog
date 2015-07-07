@@ -1,3 +1,9 @@
+gdb-arm-none-eabi (8~bpo8+1) jessie-backports; urgency=medium
+
+  * Rebuild for jessie-backports.
+
+ -- Agustin Henze <tin@debian.org>  Tue, 07 Jul 2015 17:43:32 -0300
+
 gdb-arm-none-eabi (8) unstable; urgency=medium
 
   [ Thomas Preud'homme ]
