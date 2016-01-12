@@ -29,10 +29,15 @@ configure_flags = \
 	--htmldir=\$${prefix}/share/doc/$(package)/html \
 	--pdfdir=\$${prefix}/share/doc/$(package)/pdf \
 	--disable-nls \
-	--with-libexpat \
+	--with-expat \
+	--with-system-readline \
+	--with-system-zlib \
 	--with-python=yes \
 	--with-system-gdbinit=\$${prefix}/lib/arm-none-eabi/lib/gdbinit \
 	--with-gdb-datadir=\$${prefix}/lib/arm-none-eabi/share/gdb \
+	--without-lzma \
+	--without-guile \
+	--without-babeltrace \
 	"--with-pkgversion=$(deb_version)" \
 	$(buildflags)
 
