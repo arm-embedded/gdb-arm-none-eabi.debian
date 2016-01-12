@@ -1,3 +1,12 @@
+gdb-arm-none-eabi (9) unstable; urgency=medium
+
+  * Remove patches, already applied on gdb-source (Closes: #798754)
+  * debian/rules:
+    - Remove unpack_stamp target
+    - Remove embedded-library zlib
+
+ -- Agustin Henze <tin@debian.org>  Tue, 12 Jan 2016 08:38:57 -0300
+
 gdb-arm-none-eabi (8) unstable; urgency=medium
 
   [ Thomas Preud'homme ]
